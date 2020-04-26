@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class About extends Component {
   render() {
     return (
-      <div className="pt-5 text-center">
+      <div className="pt-5 text-center container">
         <h2 className="text-center">Our Vision</h2>
         <p className="px-3">
           We are trying to make an Web Application which can be used by anyone
