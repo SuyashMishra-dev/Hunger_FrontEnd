@@ -22,8 +22,8 @@ class Orders extends Component {
         <div className="container px-3 mt-3">
           <h1>Your Order Is Confirm Check Details.</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At sint
-            provident blanditiis odit voluptatibus id.
+            School feeding programs can help prevent hunger, increase school
+            enrollment, reduce absenteeism.
           </p>
         </div>
         <div className="container-fluid">

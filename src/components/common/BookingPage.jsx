@@ -22,8 +22,8 @@ class BookingPage extends Component {
           <div className="container py-2 text-center">
             <h1>Book Your Order</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At sint
-              provident blanditiis odit voluptatibus id.
+              School feeding programs can help prevent hunger, increase school
+              enrollment, reduce absenteeism.
             </p>
           </div>
           <div className="container-fluid">
