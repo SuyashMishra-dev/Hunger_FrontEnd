@@ -3,7 +3,6 @@ import { loginAuth } from "../../redux/authAction";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import Loder from "./extra/Loder";
 
 class Login extends Component {
   constructor(props) {
@@ -39,7 +38,6 @@ class Login extends Component {
     const { isAuth } = this.props;
     return (
       <div>
-        <Loder />
         <div className="container mt-5">
           {isAuth ? (
             <Redirect to="/" />
@@ -54,6 +52,7 @@ class Login extends Component {
               <div className="form-group">
                 <label>Email address</label>
                 <input
+                  value={this.state.email}
                   name="email"
                   onChange={this.handleChange}
                   type="email"
@@ -66,6 +65,7 @@ class Login extends Component {
               <div className="form-group">
                 <label>Password</label>
                 <input
+                  value={this.state.password}
                   name="password"
                   onChange={this.handleChange}
                   type="password"

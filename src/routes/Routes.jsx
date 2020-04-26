@@ -27,7 +27,6 @@ class Routes extends Component {
   componentDidMount = () => {
     const { checkAuth } = this.props;
     let user = localStorage.getItem("user");
-    console.log(JSON.parse(user));
     checkAuth(JSON.parse(user));
   };
   render() {

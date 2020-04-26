@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Maps from "./Maps";
 import { connect } from "react-redux";
 import { editItem } from "../../redux/action";
-import Loder from "./extra/Loder";
 
 class Orders extends Component {
   state = {
@@ -20,7 +19,6 @@ class Orders extends Component {
     const { singleData } = this.props;
     return (
       <div>
-        <Loder />
         <div className="container px-3 mt-3">
           <h1>Your Order Is Confirm Check Details.</h1>
           <p>

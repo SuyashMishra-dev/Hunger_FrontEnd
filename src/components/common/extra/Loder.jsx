@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Loder = (props) => {
-  const { isLoading } = props;
+const Loder = ({ isLoading }) => {
   return isLoading ? (
     <div
-      className="loading d-flex juxtify-content-center align-items-center w-100 text-center position-absolute bg-dark"
-      style={{ height: "100vh", zIndex: 11, opacity: 0.7 }}
+      className="loading d-flex juxtify-content-center align-items-center w-100 text-center position-absolute"
+      style={{ height: "100vh", zIndex: 15, background: "rgba(0,0,0,0.6)" }}
     >
       <img className="d-block mx-auto" src="loader.gif" alt="" height="150px" />
     </div>
@@ -14,7 +13,7 @@ const Loder = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  isLoading: state.authReducer.isLoading,
+  isLoading: state.authReducer.isLoading || state.foodReducer.isLoading,
 });
 
-export default connect(mapStateToProps, null)(Loder);
+export default connect(mapStateToProps, {})(Loder);

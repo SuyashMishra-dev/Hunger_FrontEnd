@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Pagination from "./extra/Pagination";
 import SearchFood from "./extra/SearchFood";
 import { connect } from "react-redux";
-import Loder from "./extra/Loder";
 
 class Home extends Component {
   constructor(props) {
@@ -47,7 +46,6 @@ class Home extends Component {
     const { searchData } = this.props;
     return (
       <div>
-        <Loder />
         <div className="container px-sm-3 px-md-5 text-center">
           <h2 className="pt-4">Welcome to Hunger</h2>
           <p className="my-3 px-sm-0 mx-sm-0 px-md-5 mx-md-5">

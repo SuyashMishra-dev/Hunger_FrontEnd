@@ -144,7 +144,6 @@ const foodReducer = (state = initialState, action) => {
         errorMsg: payload,
       };
     default:
-      console.log("default call");
       return state;
   }
 };

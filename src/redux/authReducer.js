@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 const initialState = {
   user: {},
   signUpMsg: "",
-  isLoding: false,
+  isLoading: false,
   token: "",
   isAuth: false,
   errorMsg: "",
@@ -27,14 +27,14 @@ const authReducer = (state = initialState, action) => {
     case LOGIN_AUTH_REQUEST:
       return {
         ...state,
-        isLoding: true,
+        isLoading: true,
       };
     case LOGIN_AUTH_SUCCESS:
       // toast.success("Login Successfully :)");
       if (payload.role === "feeder") {
         return {
           ...state,
-          isLoding: false,
+          isLoading: false,
           user: payload,
           isAuth: true,
           isAdmin: true,
@@ -42,7 +42,7 @@ const authReducer = (state = initialState, action) => {
       } else {
         return {
           ...state,
-          isLoding: false,
+          isLoading: false,
           user: payload,
           isAuth: true,
           isAdmin: false,
@@ -52,38 +52,38 @@ const authReducer = (state = initialState, action) => {
       toast.error(`${payload} :(`);
       return {
         ...state,
-        isLoding: false,
+        isLoading: false,
         errorMsg: payload,
       };
     case SING_UP_AUTH_REQUEST:
       return {
         ...state,
-        isLoding: true,
+        isLoading: true,
       };
     case SING_UP_AUTH_REQUEST_SUCCESS:
       toast.success("Singup Successfully :)");
       return {
         ...state,
-        isLoding: false,
+        isLoading: false,
         signUpMsg: payload,
       };
     case SING_UP_AUTH_REQUEST_FAILURE:
       toast.error(`${payload} :(`);
       return {
         ...state,
-        isLoding: false,
+        isLoading: false,
         errorMsg: payload,
       };
     case CHECK_AUTH_REQUEST:
       return {
         ...state,
-        isLoding: true,
+        isLoading: true,
       };
     case CHECK_AUTH_FAILURE:
       toast.error(`${payload} :(`);
       return {
         ...state,
-        isLoding: false,
+        isLoading: false,
       };
     case USER_LOGOUT:
       localStorage.clear();

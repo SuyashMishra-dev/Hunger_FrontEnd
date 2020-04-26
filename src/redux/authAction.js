@@ -24,11 +24,9 @@ export const loginAuth = (payload) => (dispatch) => {
   })
     .then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.token));
-      console.log(res.data.token);
       dispatch(checkAuth(res.data.token));
     })
     .catch((error) => {
-      console.log(error.message);
       dispatch(loginAuthFailure(error.message));
     });
 };
@@ -49,7 +47,6 @@ export const loginAuthFailure = (payload) => ({
 
 // Signup actions
 export const signupAuth = (payload) => (dispatch) => {
-  console.log(payload, "login action");
   dispatch(signupAuthRequest());
   axios({
     url: "https://hunger-server.herokuapp.com/api/v1/auth/register",
@@ -60,11 +57,9 @@ export const signupAuth = (payload) => (dispatch) => {
     method: "POST",
   })
     .then((res) => {
-      console.log(res.data);
       dispatch(signupAuthSuccess(res.data));
     })
     .catch((error) => {
-      console.log(error.message);
       dispatch(signupAuthFailure(error.message));
     });
 };
@@ -85,7 +80,6 @@ export const signupAuthFailure = (payload) => ({
 
 // Authentication User
 export const checkAuth = (payload) => (dispatch) => {
-  console.log(payload, "check auth");
   dispatch(checkAuthRequest());
   axios({
     url: "https://hunger-server.herokuapp.com/api/v1/auth/get-user",

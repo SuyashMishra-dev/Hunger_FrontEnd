@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { signupAuth } from "../../redux/authAction";
 import { toast } from "react-toastify";
-import Loder from "./extra/Loder";
 
 class Singup extends Component {
   constructor(props) {
@@ -50,7 +49,6 @@ class Singup extends Component {
     const { isAuth } = this.props;
     return (
       <>
-        <Loder />
         <div className="container mt-5">
           {isAuth ? (
             <Redirect to="/" />

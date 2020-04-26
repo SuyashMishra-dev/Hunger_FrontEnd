@@ -7,11 +7,13 @@ import Routes from "./routes/Routes";
 import Footer from "./components/common/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loder from "./components/common/extra/Loder";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Loder />
         <Routes />
         <Footer />
         <ToastContainer />

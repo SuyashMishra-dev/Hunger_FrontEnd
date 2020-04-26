@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSingleItem, deleteItem } from "../../redux/action";
-import Loder from "./extra/Loder";
 
 class BookingPage extends Component {
   constructor(props) {
@@ -19,7 +18,6 @@ class BookingPage extends Component {
     const { singleData } = this.props;
     return (
       <div className="mt-5">
-        <Loder />
         <div>
           <div className="container py-2 text-center">
             <h1>Book Your Order</h1>
