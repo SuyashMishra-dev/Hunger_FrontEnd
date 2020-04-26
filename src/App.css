@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.my-card {
+  transition: all 0.3s ease-in;
+}
+
+.my-card:hover {
+  transform: scale(1.009);
+  box-shadow: 0px 0px 12px 2px rgb(179, 167, 179);
+}
+
+/* Contact Page */
+
+.text-primary1 {
+  color: #e4ca57;
+}
+
+#contact-info .form-group {
+  margin-bottom: 20px;
+}
+
+#contact-info .container1 {
+  padding-top: 10px;
+}
+
+#contact-info label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#contact-info input,
+#contact-info textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px #ddd solid;
+}
+
+#contact-info textarea {
+  height: 200px;
+}
+
+#contact-info input:focus,
+#contact-info textarea:focus {
+  outline: none;
+  border-color: #e4ca57;
+}
+
+.my-btn {
+  display: inline-block;
+  font-size: 18px;
+  color: #fff;
+  background: #333;
+  padding: 13px 20px;
+  border: none;
+}
+
+.my-btn:hover {
+  background: #e4ca57;
+  color: #333;
+}
+
+/* Maps */
+
+.App {
+  height: 350px;
+  width: 50%;
+}
+
+.map-one {
+  border: 1px solid black;
+  width: 47%;
+  float: left;
+  height: 500px;
+  padding: 10px;
+  margin: 5px;
+}
+.map-two {
+  border: 1px solid black;
+  width: 47%;
+  float: right;
+  height: 500px;
+  padding: 10px;
+  margin: 5px;
+}
+.map-three {
+  border: 1px solid black;
+  width: 96%;
+  float: left;
+  height: 500px;
+  padding: 10px;
+  margin: 5px;
+}
+div#eleven {
+  width: 70%;
+  float: right;
+}
+.direction-container {
+  max-height: 460px;
+  overflow: auto;
+}
+.customClass {
+  height: 96%;
+}
+
+.carousel-caption {
+  z-index: 1 !important;
+}
+
+@media (max-width: 600px) {
+  .my-card {
+    width: 70vw !important;
+  }
+  .my-card button {
+    margin-bottom: 0.3rem;
+  }
+}

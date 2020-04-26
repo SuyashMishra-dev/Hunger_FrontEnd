@@ -1,0 +1,37 @@
+.addItem {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.addItem:hover {
+  transform: scale(1.005);
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.addItemInput {
+  border: none !important;
+  outline: none !important;
+  border-bottom: 1px solid blue !important;
+}
+
+.addItemInput:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid seagreen !important;
+}
+
+.myBtn {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  color: #fff;
+  background: rgb(32, 132, 172);
+  padding: 11px 20px;
+  border: none;
+}
+
+.myBtn:hover {
+  background: #0d3a32;
+  color: #fff !important;
+}
