@@ -25,7 +25,15 @@ class AddItem extends Component {
   };
   addItemSubmit = (e) => {
     e.preventDefault();
-    if (
+    if (this.state.hotelName.length < 3) {
+      toast.error("Hotel name have at least 3 character :(");
+    } else if (this.state.quantity < 5) {
+      toast.error("Minimum 5 people quantity required :(");
+    } else if (this.state.phone.length < 10) {
+      toast.error("Invalid Number!!! :(");
+    } else if (this.state.zip.length != 6) {
+      toast.error("Invalid Zip Code!!! :(");
+    } else if (
       this.state.hotelName !== "" &&
       this.state.quantity !== "" &&
       this.state.address !== "" &&
