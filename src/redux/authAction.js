@@ -121,7 +121,7 @@ export const logoutUser = () => ({
 export const addFoodId = (payload, userId) => (dispatch) => {
   dispatch(addFoodIdRequest());
   axios({
-    url: `http://localhost:5000/api/v1/auth/book-food/${userId}`,
+    url: `https://hunger-server.herokuapp.com/api/v1/auth/book-food/${userId}`,
     data: payload,
     headers: {
       "Content-Type": "application/json",
@@ -154,7 +154,7 @@ export const addFoodIdFailure = (payload) => ({
 // Fetch user food
 export const fetchUserOrder = (payload) => (dispatch) => {
   axios({
-    url: "http://localhost:5000/api/v1/auth/get-user-food",
+    url: "https://hunger-server.herokuapp.com/api/v1/auth/get-user-food",
     data: payload,
     headers: {
       "Content-Type": "application/json",
