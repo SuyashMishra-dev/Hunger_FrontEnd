@@ -2,18 +2,20 @@ import React, { Component } from "react";
 import Maps from "./Maps";
 import { connect } from "react-redux";
 import { editItem } from "../../redux/action";
+import { addFoodId } from "../../redux/authAction";
 
 class Orders extends Component {
   state = {
     id: "",
   };
   componentDidMount = () => {
-    const { editItem } = this.props;
+    const { editItem, addFoodId, user } = this.props;
     let id = this.props.match.params.id;
     this.setState({
       id,
     });
     editItem({ book: true }, id);
+    addFoodId({ bookFoodId: id }, user._id);
   };
   render() {
     const { singleData } = this.props;
@@ -60,10 +62,12 @@ class Orders extends Component {
 
 const mapStateToProps = (state) => ({
   singleData: state.foodReducer.singleData,
+  user: state.authReducer.user,
 });
 
 const mapDispatchToProps = {
   editItem: editItem,
+  addFoodId: addFoodId,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

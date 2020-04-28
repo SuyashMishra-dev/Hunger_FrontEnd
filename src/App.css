@@ -108,11 +108,27 @@ div#eleven {
   z-index: 1 !important;
 }
 
+/* Your Order */
+.order-bg {
+  background: url("https://cdn.dribbble.com/users/37624/screenshots/3366123/404.jpg")
+    no-repeat center center/cover;
+  height: 80vh;
+}
+
 @media (max-width: 600px) {
   .my-card {
     width: 70vw !important;
   }
   .my-card button {
     margin-bottom: 0.3rem;
+  }
+  .card-link + .card-link {
+    margin: 0 0 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card-link + .card-link {
+    margin: 0.3rem 0 0 0;
   }
 }

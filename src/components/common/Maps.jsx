@@ -23,7 +23,6 @@ class Map extends Component {
 
   componentDidMount = () => {
     if (this.props.singleData) {
-      console.log("object====");
       this.setState({
         directions: {
           renderOptions: { itineraryContainer: "itineraryContainer" },

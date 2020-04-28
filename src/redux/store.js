@@ -6,11 +6,5 @@ import foodReducer from "./foodReducer";
 
 let index = combineReducers({ authReducer, foodReducer });
 
-const store = createStore(
-  index,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-);
+const store = createStore(index, compose(applyMiddleware(thunk)));
 export default store;

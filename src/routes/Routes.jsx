@@ -16,6 +16,7 @@ import AddItem from "../components/common/AddItem";
 import { checkAuth } from "../redux/authAction";
 import UserProfile from "../components/common/UserProfile";
 import Upload from "../components/common/Upload";
+import YourOrders from "../components/common/YourOrders";
 
 class Routes extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Routes extends Component {
   componentDidMount = () => {
     const { checkAuth } = this.props;
     let user = localStorage.getItem("user");
-    checkAuth(JSON.parse(user));
+    checkAuth(JSON.parse(user), false);
   };
   render() {
     const { isAuth } = this.props;
@@ -63,14 +64,6 @@ class Routes extends Component {
                     className="d-sm-block d-md-flex justify-content-between text-center"
                     style={{ listStyle: "none" }}
                   >
-                    <li>
-                      <Link
-                        className="d-sm-block d-md-inline-block text-dark font-weigth-normal px-2 "
-                        to="/home"
-                      >
-                        Search Food
-                      </Link>
-                    </li>
                     {this.props.isAdmin ? (
                       <li>
                         <Link
@@ -80,7 +73,16 @@ class Routes extends Component {
                           Add Item
                         </Link>
                       </li>
-                    ) : null}
+                    ) : (
+                      <li>
+                        <Link
+                          className="d-sm-block d-md-inline-block text-dark font-weigth-normal px-2 "
+                          to="/home"
+                        >
+                          Search Food
+                        </Link>
+                      </li>
+                    )}
 
                     <li>
                       <Link
@@ -101,7 +103,7 @@ class Routes extends Component {
                     <li>
                       <Link
                         className="d-sm-block d-md-inline-block text-dark font-weigth-normal px-2"
-                        to="/orders"
+                        to="/your-orders"
                       >
                         Your Orders
                       </Link>
@@ -177,6 +179,11 @@ class Routes extends Component {
           <ProtectedRouter
             path="/orders/:id"
             component={Orders}
+            isAuth={isAuth}
+          />
+          <ProtectedRouter
+            path="/your-orders/"
+            component={YourOrders}
             isAuth={isAuth}
           />
           <ProtectedRouter

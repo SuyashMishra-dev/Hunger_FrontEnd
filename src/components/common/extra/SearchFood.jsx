@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { searchFood } from "../../../redux/action";
+import { toast } from "react-toastify";
 
 class SearchFood extends Component {
   constructor(props) {
@@ -40,9 +41,10 @@ class SearchFood extends Component {
       searchFood(this.state);
       this.setState({
         flag: false,
+        pin: "",
       });
     } else {
-      alert("Wrong Pin Code");
+      toast.error("Wrong Pin Code");
     }
   };
   render() {

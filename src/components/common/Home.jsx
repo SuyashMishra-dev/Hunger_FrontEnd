@@ -67,11 +67,11 @@ class Home extends Component {
                 >
                   <img
                     src={
-                      val.photo != "no-photo.jpg"
+                      val.photo !== "no-photo.jpg"
                         ? `http://localhost:5000/uploads/${val.photo}`
                         : "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
                     }
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="..."
                     height="200px"
                   />

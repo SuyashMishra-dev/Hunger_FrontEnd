@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./MobileNav.css";
-import Search from "./Search";
 import { connect } from "react-redux";
 
 class MobileNav extends Component {
@@ -47,18 +46,19 @@ class MobileNav extends Component {
                   </li>
                   {this.props.isAuth ? (
                     <>
-                      <li>
-                        <Link onClick={this.clickMe} to="/home">
-                          Search Food
-                        </Link>
-                      </li>
                       {this.props.isAdmin ? (
                         <li>
                           <Link onClick={this.clickMe} to="/addItem">
                             Add Item
                           </Link>
                         </li>
-                      ) : null}
+                      ) : (
+                        <li>
+                          <Link onClick={this.clickMe} to="/home">
+                            Search Food
+                          </Link>
+                        </li>
+                      )}
                       <li>
                         <Link onClick={this.clickMe} to="/about">
                           About
@@ -70,7 +70,7 @@ class MobileNav extends Component {
                         </Link>
                       </li>
                       <li>
-                        <Link onClick={this.clickMe} to="/orders">
+                        <Link onClick={this.clickMe} to="/your-orders">
                           Your Orders
                         </Link>
                       </li>

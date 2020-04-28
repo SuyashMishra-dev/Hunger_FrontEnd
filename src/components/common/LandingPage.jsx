@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Image from "./extra/Image";
 import ImageText from "./extra/ImageText";
 import ImageCard from "./extra/ImageCard";
-import Loder from "./extra/Loder";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -64,7 +63,7 @@ class LandingPage extends Component {
                           Join
                         </button>
                         <Link
-                          className="card-link text-dark btn rounded-0 px-4"
+                          className="landing-link card-link text-dark btn rounded-0 px-4"
                           to="/login"
                           style={{ border: "2px solid #229BBF" }}
                         >
@@ -107,7 +106,7 @@ class LandingPage extends Component {
                           Join
                         </button>
                         <Link
-                          className="card-link text-dark btn rounded-0 px-4"
+                          className="landing-link card-link text-dark btn rounded-0 px-4"
                           to="/login"
                           style={{ border: "2px solid #FFC629" }}
                         >
@@ -150,7 +149,7 @@ class LandingPage extends Component {
                           Join
                         </button>
                         <Link
-                          className="card-link text-dark btn rounded-0 px-4"
+                          className="landing-link card-link text-dark btn rounded-0 px-4"
                           to="/login"
                           style={{ border: "2px solid #F56A35" }}
                         >

@@ -4,10 +4,6 @@ import { connect } from "react-redux";
 import { getSingleItem, deleteItem } from "../../redux/action";
 
 class BookingPage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = () => {
     const { getSingleItem } = this.props;
     let id = this.props.match.params.id;
@@ -36,7 +32,7 @@ class BookingPage extends Component {
                   <div class="card mb-3">
                     <img
                       src={
-                        singleData.photo != "no-photo.jpg"
+                        singleData.photo !== "no-photo.jpg"
                           ? `http://localhost:5000/uploads/${singleData.photo}`
                           : "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
                       }

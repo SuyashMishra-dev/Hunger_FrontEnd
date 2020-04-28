@@ -8,6 +8,12 @@ import {
   CHECK_AUTH_REQUEST,
   CHECK_AUTH_FAILURE,
   USER_LOGOUT,
+  ADD_FOOD_ID_REQUEST,
+  ADD_FOOD_ID_SUCCESS,
+  ADD_FOOD_ID_FAILURE,
+  FETCH_USER_ORDERS_REQUEST,
+  FETCH_USER_ORDERS_SUCCESS,
+  FETCH_USER_ORDERS_FAILURE,
 } from "./authActionTypes";
 import { toast } from "react-toastify";
 
@@ -19,6 +25,7 @@ const initialState = {
   isAuth: false,
   errorMsg: "",
   isAdmin: false,
+  orderList: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -30,7 +37,9 @@ const authReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case LOGIN_AUTH_SUCCESS:
-      // toast.success("Login Successfully :)");
+      if (action.reqFromServer) {
+        toast.success("Login Successfully :)");
+      }
       if (payload.role === "feeder") {
         return {
           ...state,
@@ -93,7 +102,40 @@ const authReducer = (state = initialState, action) => {
         isAuth: false,
         isAdmin: false,
       };
-
+    case ADD_FOOD_ID_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case ADD_FOOD_ID_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        user: payload,
+      };
+    case ADD_FOOD_ID_FAILURE:
+      toast.error("Something went wrong!!! Try Again");
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case FETCH_USER_ORDERS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_USER_ORDERS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        orderList: payload,
+      };
+    case FETCH_USER_ORDERS_FAILURE:
+      toast.error("Something went wrong!!! Try Again");
+      return {
+        ...state,
+        isLoading: false,
+      };
     default:
       return state;
   }

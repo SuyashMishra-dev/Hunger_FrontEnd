@@ -9,6 +9,12 @@ import {
   CHECK_AUTH_REQUEST,
   CHECK_AUTH_FAILURE,
   USER_LOGOUT,
+  ADD_FOOD_ID_REQUEST,
+  ADD_FOOD_ID_SUCCESS,
+  ADD_FOOD_ID_FAILURE,
+  FETCH_USER_ORDERS_REQUEST,
+  FETCH_USER_ORDERS_SUCCESS,
+  FETCH_USER_ORDERS_FAILURE,
 } from "./authActionTypes";
 
 // Login actions
@@ -24,7 +30,7 @@ export const loginAuth = (payload) => (dispatch) => {
   })
     .then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.token));
-      dispatch(checkAuth(res.data.token));
+      dispatch(checkAuth(res.data.token, true));
     })
     .catch((error) => {
       dispatch(loginAuthFailure(error.message));
@@ -35,9 +41,10 @@ export const loginAuthRequest = () => ({
   type: LOGIN_AUTH_REQUEST,
 });
 
-export const loginAuthSuccess = (payload) => ({
+export const loginAuthSuccess = (payload, reqFromServer) => ({
   type: LOGIN_AUTH_SUCCESS,
   payload,
+  reqFromServer,
 });
 
 export const loginAuthFailure = (payload) => ({
@@ -79,7 +86,7 @@ export const signupAuthFailure = (payload) => ({
 });
 
 // Authentication User
-export const checkAuth = (payload) => (dispatch) => {
+export const checkAuth = (payload, reqFromServer) => (dispatch) => {
   dispatch(checkAuthRequest());
   axios({
     url: "https://hunger-server.herokuapp.com/api/v1/auth/get-user",
@@ -89,7 +96,7 @@ export const checkAuth = (payload) => (dispatch) => {
     method: "GET",
   })
     .then((res) => {
-      dispatch(loginAuthSuccess(res.data.data));
+      dispatch(loginAuthSuccess(res.data.data, reqFromServer));
     })
     .catch((error) => {
       dispatch(checkAuthFailure(error.message));
@@ -108,4 +115,71 @@ export const checkAuthFailure = (payload) => ({
 // Logout User
 export const logoutUser = () => ({
   type: USER_LOGOUT,
+});
+
+// Add food id
+export const addFoodId = (payload, userId) => (dispatch) => {
+  dispatch(addFoodIdRequest());
+  axios({
+    url: `http://localhost:5000/api/v1/auth/book-food/${userId}`,
+    data: payload,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+  })
+    .then((res) => {
+      dispatch(addFoodIdSuccess(res.data.data));
+    })
+    .catch((error) => {
+      dispatch(addFoodIdFailure(error.message));
+    });
+};
+
+export const addFoodIdRequest = (payload) => ({
+  type: ADD_FOOD_ID_REQUEST,
+  payload,
+});
+
+export const addFoodIdSuccess = (payload) => ({
+  type: ADD_FOOD_ID_SUCCESS,
+  payload,
+});
+
+export const addFoodIdFailure = (payload) => ({
+  type: ADD_FOOD_ID_FAILURE,
+  payload,
+});
+
+// Fetch user food
+export const fetchUserOrder = (payload) => (dispatch) => {
+  axios({
+    url: "http://localhost:5000/api/v1/auth/get-user-food",
+    data: payload,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  })
+    .then((res) => {
+      dispatch(fetchUserOrderSuccess(res.data.data));
+    })
+    .catch((error) => {
+      dispatch(fetchUserOrderFailure(error.message));
+    });
+};
+
+export const fetchUserOrderRequest = (payload) => ({
+  type: FETCH_USER_ORDERS_REQUEST,
+  payload,
+});
+
+export const fetchUserOrderSuccess = (payload) => ({
+  type: FETCH_USER_ORDERS_SUCCESS,
+  payload,
+});
+
+export const fetchUserOrderFailure = (payload) => ({
+  type: FETCH_USER_ORDERS_FAILURE,
+  payload,
 });
